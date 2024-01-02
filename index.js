@@ -6,6 +6,7 @@ const passport = require('./middlewares/passportConfig');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger_output.json');
 const authRoutes = require('./routes/auth');
+const taskRoutes = require('./routes/task');
 const connectDb = require('./config/db');
 
 const app = express();
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
     res.status(200).send("Hello World")
 })
 app.use('/', authRoutes);
+app.use('/', taskRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 const PORT = process.env.PORT || 3000;
