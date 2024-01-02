@@ -36,7 +36,7 @@ const forgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
         const user = await User.findOne({ email });
-        const appLink = 'link'
+        const appLink = 'https://rose-agreeable-rhinoceros.cyclic.app'
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
